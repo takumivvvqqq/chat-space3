@@ -10,4 +10,5 @@ class GroupsController < ApplicationController
 
   def update
   end
+
 end
