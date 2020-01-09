@@ -1,3 +1,6 @@
+class Application < Rails::Application
+  # Initialize configuration defaults for originally generated Rails version.
+  config.time_zone = 'Tokyo'
 require_relative 'boot'
 
 require 'rails/all'
