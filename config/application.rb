@@ -1,3 +1,6 @@
+class Application < Rails::Application
+  # Initialize configuration defaults for originally generated Rails version.
+  config.time_zone = 'Tokyo'
 require_relative 'boot'
 
 require 'rails/all'
@@ -16,4 +19,5 @@ module ChatSpace3
       config.i18n.default_locale = :ja
     end
   end
+end
 end
