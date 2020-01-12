@@ -59,7 +59,7 @@ $(function(){
        }
       })
       .fail(function() {
-        console.log('alert');
+        alert('error');
       });
      };
      if (document.location.href.match(/\/groups\/\d+\/messages/)) {
