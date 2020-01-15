@@ -39,14 +39,26 @@ $(function(){
          return html;
        };
      }
-     var reloadMessages = function() {
-      last_message_id = $('.message:last').data("message-id");
+     $('#new_message').on('submit', function(e){
+      e.preventDefault();
+      var formData = new FormData(this);
+      var url = $(this).attr('action')
       $.ajax({
-        url: "api/messages",
-        type: 'get',
+        url: url,
+        type: "POST",
+        data: formData,
         dataType: 'json',
-        data: {id: last_message_id}
+        processData: false,
+        contentType: false
       })
+    //  var reloadMessages = function() {
+    //   last_message_id = $('.message:last').data("message-id");
+    //   $.ajax({
+    //     url: "api/messages",
+    //     type: 'get',
+    //     dataType: 'json',
+    //     data: {id: last_message_id}
+    //   })
       .done(function(messages) {
         if (messages.length !== 0 ) {
         var insertHTML = '';
@@ -54,8 +66,9 @@ $(function(){
           insertHTML += buildHTML(message)
         });
         $('.messages').append(insertHTML);
-        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
-       }
+        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight},50);
+        $('form')[0].reset();
+      }
       })
       .fail(function() {
         alert('error');
