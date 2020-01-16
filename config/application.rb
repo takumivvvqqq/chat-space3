@@ -1,4 +1,4 @@
-class Application < Rails::Application
+# class Application < Rails::Application
   # Initialize configuration defaults for originally generated Rails version
 require_relative 'boot'
 require 'rails/all'
